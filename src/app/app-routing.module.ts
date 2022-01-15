@@ -9,13 +9,13 @@ import {LoginComponent} from "./Components/login/login.component";
 import {RegisterComponent} from "./Components/register/register.component";
 
 const routes: Routes = [
-  {path: "home"  , component: HomeComponent},
-  {path: "students" , component: StudentComponent},
-  {path: "books" , component: BookComponent},
-  {path: "admin" , component: AdminComponent},
-  {path: "login" , component: LoginComponent},
-  {path: "register" , component: RegisterComponent},
-  {path : "**" , component: AppComponent}
+  {path: "home"      ,component: HomeComponent},
+  {path: "students"  ,component: StudentComponent},
+  {path: "books"     ,component: BookComponent},
+  {path: "admin"     ,component: AdminComponent},
+  {path: "login"     ,component: LoginComponent},
+  {path: "register"  ,component: RegisterComponent},
+  {path : "**"       ,redirectTo : "/home" }
 ];
 
 @NgModule({
