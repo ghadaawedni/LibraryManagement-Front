@@ -15,4 +15,20 @@ export class StudentService {
   public getStudents() : Observable<Student[]> {
     return this.http.get<Student[]> (`${this.apiServerUrl}/students/all`);
   }
+
+  public addStudent(student :Student) : Observable<Student> {
+    return this.http.post<Student> (`${this.apiServerUrl}/students/save`, student);
+  }
+
+  public updateStudent(student :Student) : Observable<Student> {
+    return this.http.post<Student> (`${this.apiServerUrl}/students/update`, student);
+  }
+
+  public deleteStudent(studentID :number)  {
+    let student = {
+      studentId : studentID
+    }
+    return this.http.post ("http://localhost:9191/students/delete",student);
+  }
+
 }
