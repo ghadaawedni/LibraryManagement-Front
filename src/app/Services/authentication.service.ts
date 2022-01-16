@@ -19,13 +19,17 @@ export class AuthenticationService {
       password : password
     }
     console.log(user)
-    return this.httpClient.post ('http://localhost:9090/administration/authenticate',user );
+    return this.httpClient.post ('http://localhost:9191/administration/authenticate',user );
   }
 
   getLogged(username : string, jwt : string){
     let headers = new HttpHeaders({
       'Authorization': "Bearer "+jwt });
-    return this.httpClient.get<Student>('http://localhost:9090/administration/user/'+username,{headers : headers}) ;
+    return this.httpClient.get<Student>('http://localhost:9191/administration/user/'+username,{headers : headers}) ;
+  }
+
+  register( student : Student) {
+    return this.httpClient.post("http://localhost:9191/students/save",student)
   }
 
   getUserValue(){

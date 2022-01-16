@@ -5,8 +5,8 @@
       <img src="assets/img/gallery/logo-n.png" style="margin: 2vh" id="icon" alt="User Icon" />
     </div>
     <form [formGroup]="loginForm" (ngSubmit)="signIn()" >
-      <input formControlName="username" type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input formControlName="password" type="password"  class="fadeIn third" name="login" placeholder="password">
+      <input formControlName="username" type="text"      class="fadeIn second"  placeholder="Username">
+      <input formControlName="password" type="password"  class="fadeIn third"   placeholder="password">
       <div>
         <small style="color:red">  {{control}}  </small>
       </div>

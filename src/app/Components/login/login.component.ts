@@ -15,8 +15,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  currentUser : boolean = false;
-
 
   control : string =  "";
   jwt     : string =  "";
@@ -32,12 +30,11 @@ export class LoginComponent implements OnInit {
       .subscribe( (  data: any) => {
         this.jwt = data.jwt;
         this.authenticationService.getLogged(this.loginForm.value.username,this.jwt)
-          .subscribe( ( data ) => {
+          .subscribe( ( data  ) => {
           localStorage.setItem('currentUser',JSON.stringify(data));
           this.router.navigate( ['/home']);
         });
       },(error) => {
-
         console.log(error)
         if(error.status == 403){
           this.control = "Vérifier vos données !";
