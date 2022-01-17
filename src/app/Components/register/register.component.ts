@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthenticationService} from "../../Services/authentication.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AdminComponent} from "../../Administration/admin/admin.component";
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private router: Router , private authenticationService : AuthenticationService, private fb : FormBuilder) { }
+  constructor(private adminComponent : AdminComponent ,private router: Router , private authenticationService : AuthenticationService, private fb : FormBuilder) { }
 
   ngOnInit(): void {
   }
@@ -26,7 +27,6 @@ export class RegisterComponent implements OnInit {
   });
 
 
-
   signUp(){
     let student = {
       firstName   :  this.registerForm.value.firstName,
@@ -34,12 +34,14 @@ export class RegisterComponent implements OnInit {
       age         :  this.registerForm.value.age,
       studyField  :  this.registerForm.value.studyField,
       university  :  this.registerForm.value.university,
-      phone       :  this.registerForm.value.phone
+      phone       :  this.registerForm.value.phone,
+      exist       : 1
     }
 
-    this.authenticationService.register(student)
+    this.authenticationService.register( student)
       .subscribe( (  data: any) => {
-        this.router.navigate( ['/login']);
+            this.adminComponent.addNewStudent()
+            this.adminComponent.getStudents()
         },(error) => {
 
         }

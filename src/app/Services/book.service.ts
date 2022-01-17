@@ -17,17 +17,12 @@ export class BookService {
     return this.http.get<Book[]> (`${this.apiServerUrl}/books/all`);
   }
 
-  public addStudent(book :Book) : Observable<Book> {
-    return this.http.post<Book> (`${this.apiServerUrl}/books/save`, book);
+  public addBook(book: { nbCopy: any; description: any; bookAuthor: any; bookName: any }) : Observable<Book> {
+    return this.http.post<Book> (`${this.apiServerUrl}/books/`, book);
   }
 
-  public updateStudent(book :Book) : Observable<Book> {
-    return this.http.post<Book> (`${this.apiServerUrl}/books/update`, book);
+  public deleteBook(id : number)   {
+    return this.http.delete (`${this.apiServerUrl}/books/`+id);
   }
 
-  public deleteStudent(bookId :number) : Observable<unknown> {
-    const url = `http://localhost:9191/books/${bookId}`
-
-    return this.http.delete(url);
-  }
 }

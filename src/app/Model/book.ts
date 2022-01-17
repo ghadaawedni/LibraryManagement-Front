@@ -1,8 +1,7 @@
 export interface Book {
-  bookId : number;
+  id : number;
   bookName : String;
   bookAuthor : String;
-  bookEmprunte : number;
-  bookImage : String;
-  studentId : number;
+  nbCopy : number;
+  description : String;
 }

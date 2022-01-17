@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import {Router} from "@angular/router";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Student} from "../Model/student";
+import {Admin} from "../Model/admin";
 
 @Injectable({
   providedIn: 'root'
@@ -28,12 +29,19 @@ export class AuthenticationService {
     return this.httpClient.get<Student>('http://localhost:9191/administration/user/'+username,{headers : headers}) ;
   }
 
-  register( student : Student) {
+  register(student: { exist: number; firstName: any; lastName: any; phone: any; university: any; age: any; studyField: any }) {
     return this.httpClient.post("http://localhost:9191/students/save",student)
   }
 
   getUserValue(){
     return JSON.parse(<string>localStorage.getItem('currentUser'));
+  }
+
+  getAdmins(){
+
+    let headers = new HttpHeaders({
+      'Authorization': "Bearer "+localStorage.getItem("jwt") });
+    return this.httpClient.get <Admin[]>("http://localhost:9191/administration/admins");
   }
 
   signUp(user : Student){
