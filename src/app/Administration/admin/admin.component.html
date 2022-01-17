@@ -1,59 +1,141 @@
-<main class="main" id="top">
-
-  <section class="bg-600">
-
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <h6 class="font-sans-serif text-primary fw-bold">Our Plans </h6>
-          <h1 class="mb-6">Welcome si ______ </h1>
-        </div>
-        <div class="col">
-          <div class="d-flex justify-content-end">
-            <label class="form-check-label me-2" for="customSwitch1">Monthly</label>
-            <div class="form-check form-switch">
-              <input class="form-check-input" id="customSwitch1" type="checkbox" checked="checked" />
-              <label class="form-check-label align-top" for="customSwitch1">Yearly</label>
-            </div>
+<div class="container-xl" style="border: 1px solid black; border-radius: 10px;margin-top: 10vh ; margin-bottom: 10vh">
+  <div class="table-responsive" style="margin-top: 3vh ; margin-bottom: 3vh">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-5">
+            <h2>Students <b>Management</b></h2>
           </div>
+          <div class="col-sm-5"></div>
+          <div class="col-sm-2" >
+          <a (click)=addNewStudent() class="btn btn-secondary" >Add New Studnet</a>
+        </div>
         </div>
       </div>
+      <div *ngIf="showAddForm">
+        <app-register></app-register>
+        <hr/>
+      </div>
+      <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Study Field</th>
+          <th>University</th>
+          <th>Phone</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let student of students">
+          <td>{{student.studentId}}</td>
+          <td>{{student.firstName}} </td>
+          <td>{{student.lastName}} </td>
+          <td>{{student.studyField}}</td>
+          <td>{{student.university}}</td>
+          <td>{{student.phone}}</td>
+          <td>
+            <a (click)=deleteStudent(student.studentId) class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
+
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+<div class="container-xl" style="border: 1px solid black; border-radius: 10px;margin-top: 10vh ; margin-bottom: 10vh">
+  <div class="table-responsive" style="margin-top: 3vh ; margin-bottom: 3vh">
+    <div class="table-title">
       <div class="row">
-        <div class="col-md-6">
-          <div class="card mb-5 mb-md-0 h-100">
-            <div class="text-center mb-5"><span class="badge bg-black fw-normal text-uppercase bg-secondary">Students</span></div>
-            <div class="card-body px-4 py-6 py-md-5 py-lg-6">
-              <div class="d-flex justify-content-start text-secondary"><b class="display-5 fw-medium">200 new students !</b>></div>
-              <p class="text-muted mb-2 my-md-3">A private limited is the most popular</p>
-              <hr class="border border-1" />
-              <ul class="list-unstyled">
-                <li class="mb-3"><i class="fas fa-check text-info me-2"></i>student 1</li>
-                <li class="mb-3"><i class="fas fa-check text-info me-2"></i>student 1</li>
-                <li class="mb-3"><i class="fas fa-check text-info me-2"></i>student 1</li>
-              </ul>
-              <div class="d-grid"> <a class="btn btn-lg btn-primary" routerLink="../students">View all </a></div>
-            </div>
-          </div>
+        <div class="col-sm-5">
+          <h2>Books <b>Management</b></h2>
         </div>
-        <div class="col-md-6">
-          <div class="card mb-5 mb-md-0 h-100">
-            <div class="text-center mb-5"><span class="badge bg-black fw-normal text-uppercase bg-info">Books</span></div>
-            <div class="card-body px-4 py-6 py-md-5 py-lg-6">
-              <div class="d-flex justify-content-start text-secondary"><b class="display-5 fw-medium"> 1250 books was imprinted</b></div>
-              <p class="text-muted mb-2 my-md-3">A private limited is the most popular</p>
-              <hr class="border border-1" />
-              <ul class="list-unstyled">
-                <li class="mb-3"><i class="fas fa-check text-info me-2"></i>Access to 25 courses</li>
-                <li class="mb-3"><i class="fas fa-check text-info me-2"></i>Course Discussions</li>
-                <li class="mb-3"><i class="fas fa-check text-info me-2"></i>Certificate after completion</li>
-                <li class="mb-3"><i class="fas fa-check text-info me-2"></i>Offline Viewing</li>
-                <li class="mb-3"><i class="fas fa-check text-muted me-2"></i> Private sessions</li>
-              </ul>
-              <div class="d-grid"><a class="btn btn-lg btn-secondary" href="#!">Purchase now</a></div>
-            </div>
-          </div>
+        <div class="col-sm-5"></div>
+        <div class="col-sm-2" >
+          <a (click)=addNewBook() class="btn btn-secondary" >Add New book</a>
         </div>
       </div>
     </div>
-  </section>
-</main>
+    <div *ngIf="showAddBookForm">
+      <app-add-book></app-add-book>
+      <hr/>
+    </div>
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Book Name</th>
+        <th>Book author</th>
+        <th>Description</th>
+        <th>Copy Number</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{book.id}}</td>
+        <td>{{book.bookName}} </td>
+        <td>{{book.bookAuthor}}</td>
+        <td>{{book.description}}</td>
+        <td>{{book.nbCopy}}</td>
+        <td>
+          <a (click)=updateBook(book.id) class="update" title="update" data-toggle="tooltip"><i class="material-icons">&#xE0B8;</i></a>
+          <a (click)=deleteBook(book.id) class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+<div class="container-xl" style="border: 1px solid black; border-radius: 10px;margin-top: 10vh ; margin-bottom: 10vh">
+  <div class="table-responsive" style="margin-top: 3vh ; margin-bottom: 3vh">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-5">
+          <h2>Admins <b>Management</b></h2>
+        </div>
+        <div class="col-sm-5"></div>
+        <div class="col-sm-2" >
+          <a (click)=addNewBook() class="btn btn-secondary" >Add New Admin</a>
+        </div>
+      </div>
+    </div>
+<!--    <div *ngIf="showAddAdminForm">-->
+<!--      <app-add-admin></app-add-admin>-->
+<!--      <hr/>-->
+<!--    </div>-->
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr>
+        <th>Admin User Name</th>
+        <th>Admin First Name</th>
+        <th>Admin Last Name</th>
+        <th>Admin Email</th>
+        <th>Admin Phone Number</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let admin of admins">
+        <td>{{admin.username}}</td>
+        <td>{{admin.firstName}} </td>
+        <td>{{admin.lastName}}</td>
+        <td>{{admin.email}}</td>
+        <td>{{admin.phoneNumber}}</td>
+        <td>
+          <a (click)=updateBook(admin.id) class="update" title="update" data-toggle="tooltip"><i class="material-icons">&#xE0B8;</i></a>
+          <a (click)=deleteBook(admin.id) class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<hr/>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <div class="fadeIn first">
+      <img src="assets/img/gallery/logo-n.png" style="margin: 2vh" id="icon" alt="User Icon" />
+    </div>
+    <form [formGroup]="addForm" (ngSubmit)="addBook()" >
+      <input formControlName="bookName" type="text" id="firstName" class="fadeIn second" placeholder="Book Name">
+      <input formControlName="bookAuthor" type="text" id="lastName " class="fadeIn third"  placeholder="Book Author">
+      <textarea formControlName="description"  id="age" class="fadeIn third"  placeholder="Description"></textarea>
+      <input formControlName="nbCopy" type="text" id="studyField" class="fadeIn third"  placeholder="Copy number">
+      <input type="submit" class="fadeIn fourth" value="Add Book">
+    </form>
+  </div>
+</div>
