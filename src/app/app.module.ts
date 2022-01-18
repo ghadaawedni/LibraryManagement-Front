@@ -10,11 +10,11 @@ import {HttpClientModule} from "@angular/common/http";
 import {StudentService} from "./Services/student.service";
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
-import { RegisterComponent } from './Components/register/register.component';
+import { RegisterComponent } from './Administration/admin/add-student/register.component';
 import {BookService} from "./Services/book.service";
-import { AddBookComponent } from './Components/add-book/add-book.component';
-import { AddAdminComponent } from './Components/add-admin/add-admin.component';
-import { AddEmprunteComponent } from './Components/add-emprunte/add-emprunte.component';
+import { AddBookComponent } from './Administration/admin/add-book/add-book.component';
+import { AddAdminComponent } from './Administration/admin/add-admin/add-admin.component';
+import { AddEmprunteComponent } from './Administration/admin/add-emprunte/add-emprunte.component';
 
 @NgModule({
   declarations: [

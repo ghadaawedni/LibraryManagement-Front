@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {AdminComponent} from "../../Administration/admin/admin.component";
+import {AdminComponent} from "../admin.component";
 import {Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {AdminService} from "../../Services/admin.service";
-import {Admin} from "../../Model/admin";
+import {AdminService} from "../../../Services/admin.service";
 
 @Component({
   selector: 'app-add-admin',
@@ -24,7 +23,8 @@ export class AddAdminComponent implements OnInit {
     lastName: ['', Validators.required],
     email: ['', [Validators.required,Validators.email]],
     phoneNumber: ['', Validators.required],
-    password: ['', Validators.required]
+    password: ['', Validators.required],
+    superUser: ['', ]
   });
 
 
@@ -35,8 +35,10 @@ export class AddAdminComponent implements OnInit {
       lastName: this.addForm.value.lastName,
       email: this.addForm.value.email,
       phoneNumber: this.addForm.value.phoneNumber,
-      password: this.addForm.value.password
+      password: this.addForm.value.password,
+      superUser: this.addForm.value.superUser == "" || this.addForm.value.superUser == false ? 0 : 1
     }
+    console.log(admin);
     this.adminService.addAdmin(admin)
       .subscribe((data) => {
 

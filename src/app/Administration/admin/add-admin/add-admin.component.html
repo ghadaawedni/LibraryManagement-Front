@@ -2,7 +2,7 @@
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <div class="fadeIn first">
-      <img src="assets/img/gallery/logo-n.png" style="margin: 2vh" id="icon" alt="User Icon" />
+      <img src="../../../../assets/img/gallery/logo-n.png" style="margin: 2vh" id="icon" alt="User Icon" />
     </div>
     <form [formGroup]="addForm" (ngSubmit)="addAdmin()" >
       <input formControlName="username" type="text" id="username" class="fadeIn second" placeholder="Username">
@@ -11,6 +11,10 @@
       <input formControlName="email" type="email" id="email" class="fadeIn third"  placeholder="Email">
       <input formControlName="phoneNumber" type="text" id="phoneNumber" class="fadeIn third"  placeholder="Phone number">
       <input formControlName="password" type="text" id="password" class="fadeIn third"  placeholder="password ">
+      <div class="form-check form-switch" style="margin: 10px">
+        <input class="form-check-input" formControlName="superUser" type="checkbox" id="flexSwitchCheckChecked" >
+        <label class="form-check-label" for="flexSwitchCheckChecked">Add as a super Admin</label>
+      </div>
       <input type="submit" [disabled]="addForm.invalid" class="fadeIn fourth" value="Add Admin">
     </form>
   </div>

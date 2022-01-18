@@ -4,7 +4,7 @@ import {BookComponent} from "./Components/book/book.component";
 import {AdminComponent} from "./Administration/admin/admin.component";
 import {HomeComponent} from "./Components/home/home.component";
 import {LoginComponent} from "./Components/login/login.component";
-import {RegisterComponent} from "./Components/register/register.component";
+import {RegisterComponent} from "./Administration/admin/add-student/register.component";
 import {AuthGuard} from "./Guards/auth.guard";
 import {NotAuthGuard} from "./Guards/not-auth.guard";
 

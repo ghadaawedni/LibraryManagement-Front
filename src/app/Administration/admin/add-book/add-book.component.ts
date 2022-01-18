@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {AdminComponent} from "../../Administration/admin/admin.component";
+import {AdminComponent} from "../admin.component";
 import {Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {BookService} from "../../Services/book.service";
+import {BookService} from "../../../Services/book.service";
 
 @Component({
   selector: 'app-add-book',
@@ -22,7 +22,9 @@ export class AddBookComponent implements OnInit {
     bookName: ['', Validators.required],
     bookAuthor: ['', Validators.required],
     description: ['', Validators.required],
-    nbCopy: ['', Validators.required]
+    nbCopy: ['', Validators.required],
+    img: ['', Validators.required],
+
   });
 
 
@@ -31,7 +33,8 @@ export class AddBookComponent implements OnInit {
       bookName: this.addForm.value.bookName,
       bookAuthor: this.addForm.value.bookAuthor,
       description: this.addForm.value.description,
-      nbCopy: this.addForm.value.nbCopy
+      nbCopy: this.addForm.value.nbCopy,
+      img: this.addForm.value.img.replace(/^.*[\\\/]/, '')
     }
 
     this.bookService.addBook(book)

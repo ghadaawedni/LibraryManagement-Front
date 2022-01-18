@@ -16,6 +16,10 @@ export class BookService {
     console.log("getbooks in book service is running !");
     return this.http.get<Book[]> (`${this.apiServerUrl}/books/all`);
   }
+  public getBestBooks() : Observable<Book[]> {
+    console.log("getbooks in book service is running !");
+    return this.http.get<Book[]> (`${this.apiServerUrl}/books/empruntes/best`);
+  }
 
   public addBook(book: { nbCopy: any; description: any; bookAuthor: any; bookName: any }) : Observable<Book> {
     return this.http.post<Book> (`${this.apiServerUrl}/books/`, book);

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {AuthenticationService} from "../../Services/authentication.service";
+import {AuthenticationService} from "../../../Services/authentication.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {AdminComponent} from "../../Administration/admin/admin.component";
+import {AdminComponent} from "../admin.component";
 
 @Component({
-  selector: 'app-register',
+  selector: 'app-add-student',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })

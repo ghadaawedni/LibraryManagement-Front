@@ -4,4 +4,5 @@ export interface Book {
   bookAuthor : String;
   nbCopy : number;
   description : String;
+  img : string;
 }

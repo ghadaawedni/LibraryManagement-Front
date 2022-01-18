@@ -23,8 +23,20 @@ export class AppComponent {
   logOut(){
     if(window.confirm("Would you really log OUT ? ")){
       localStorage.removeItem("currentUser");
+      localStorage.removeItem("jwt");
       this.route.navigate(["/home"])
       this.setLoged(false);
     }
+  }
+
+  // @ts-ignore
+  onActivate(event) {
+
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+
   }
 }

@@ -2,14 +2,14 @@
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <div class="fadeIn first">
-      <img src="assets/img/gallery/logo-n.png" style="margin: 2vh" id="icon" alt="User Icon" />
+      <img src="../../../../assets/img/gallery/logo-n.png" style="margin: 2vh" id="icon" alt="User Icon" />
     </div>
     <form [formGroup]="addForm" (ngSubmit)="addEmprunte()" >
 
       <div>
         Book Name
         <select formControlName="bookId" id="bookId" >
-          <option *ngFor="let book of books" value="{{book.id}}">{{book.bookName}} by : {{book.bookAuthor}}</option>
+          <option *ngFor="let book of books" value="{{book.id}}"> <b> {{book.bookName}} </b> by  {{book.bookAuthor}}</option>
         </select>
       </div>
       <br>
@@ -21,7 +21,7 @@
       <br>
       <div>
         Date Emprunte
-        <input formControlName="dateEmprunte" type="date" id="dateEmprunte" class="fadeIn third">
+        <input formControlName="dateEmprunte" [disabled]="true"  type="date" id="dateEmprunte" class="fadeIn third">
       </div>
       <br>
       <div>

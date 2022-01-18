@@ -6,5 +6,6 @@ export interface Admin {
   phoneNumber : String,
   username : String,
   password: String
+  superUser : boolean;
 
 }

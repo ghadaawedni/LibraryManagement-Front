@@ -5,7 +5,9 @@
       <div class="col-md-5 col-lg-6 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 w-100" src="../../../assets/img/gallery/hero-header.png" width="470" alt="hero-header" /></div>
       <div class="col-md-7 col-lg-6 text-md-start text-center py-6">
         <h4 class="fw-bold font-sans-serif">Welcome to One Hand Library </h4>
-        <h1 class="fs-6 fs-xl-7 mb-5">Here, you find everything you need</h1><a class="btn btn-primary me-2" href="#!" role="button">Famous books</a><a class="btn btn-outline-secondary" href="#!" role="button">All books</a>
+        <h1 class="fs-6 fs-xl-7 mb-5">Here, you find everything you need</h1>
+        <a class="btn btn-primary me-2"   role="button" (click)="scroll(topFeaturedBook)" style="color: white">Famous books</a>
+        <a class="btn btn-outline-secondary" routerLink="/books" role="button">All books</a>
       </div>
     </div>
   </div>
@@ -34,27 +36,27 @@
 <section>
 
 
-  <div class="container">
+  <div class="container" #topFeaturedBook >
     <div class="row">
       <h1 class="text-center mb-5"> Top Featured Books </h1>
-      <div class="col-md-4 mb-4">
-        <div class="card h-100"><img class="card-img-top w-100" src="../../../assets/img/gallery/design.png" alt="courses" />
+      <div class="col-md-4 mb-4" *ngFor="let book of bestBooks">
+        <div class="card h-100">
+          <img class="card-img-top w-100" src="../../../assets/img/gallery/{{book.img}}" alt="courses" />
           <div class="card-body">
-            <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">User Research for User Experience Design</h5><a class="text-muted fs--1 stretched-link text-decoration-none" href="#!">The Museum of Modern Art</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-4">
-        <div class="card h-100"><img class="card-img-top w-100" src="../../../assets/img/gallery/psychology.png" alt="courses" />
-          <div class="card-body">
-            <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">Buddhism and Modern Psychology</h5><a class="text-muted fs--1 stretched-link text-decoration-none" href="#!">The Museum of Modern Art</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-4">
-        <div class="card h-100"><img class="card-img-top w-100" src="../../../assets/img/gallery/philosophy.png" alt="courses" />
-          <div class="card-body">
-            <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">Introduction to Philosophy</h5><a class="text-muted fs--1 stretched-link text-decoration-none" href="#!">Duke University</a>
+            <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">
+              <div class="row">
+                <div class="col-md-6"  >
+                  {{book.bookName}}
+                </div>
+                <div class="col-md-6" align="center">
+                  {{book.nbCopy}} available copy
+                </div>
+              </div>
+            </h5>
+
+            <a class="text-muted fs--1 stretched-link text-decoration-none" href="#!">
+              {{book.description}}
+            </a>
           </div>
         </div>
       </div>

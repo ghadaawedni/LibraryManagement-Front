@@ -9,11 +9,13 @@ import {AuthenticationService} from "../../Services/authentication.service";
 import {AdminService} from "../../Services/admin.service";
 import {Emprunte} from "../../Model/Emprunte";
 import {EmprunteService} from "../../Services/emprunte.service";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  styleUrls: ['./admin.component.css'],
+  providers: [DatePipe]
 })
 export class AdminComponent implements OnInit {
 
@@ -26,18 +28,21 @@ export class AdminComponent implements OnInit {
   public showAddAdminForm : boolean = false;
   public showAddEmprunteForm : boolean = false;
 
+  public superUser : boolean = false;
+
 
   msgBtn1 : String ='Add emprunte';
   msgBtn2 : String ='Add Admin';
   msgBtn3 : String ='Add Book';
   msgBtn4 : String ='Add Student';
-  constructor(private emprunteService: EmprunteService,private adminService :AdminService,private authenticationService : AuthenticationService,private studentService : StudentService, private bookService : BookService) { }
+  constructor(private datePipe: DatePipe,private emprunteService: EmprunteService,private adminService :AdminService,private authenticationService : AuthenticationService,private studentService : StudentService, private bookService : BookService) { }
 
   ngOnInit(): void {
     this.getStudents();
     this.getBooks();
     this.getAdmins();
     this.getEmpruntes();
+    this.superUser = JSON.parse(<string>localStorage.getItem("currentUser")).superUser == 1;
   }
 
 
@@ -62,7 +67,6 @@ export class AdminComponent implements OnInit {
     this.bookService.getBooks()
       .subscribe(
         (res ) => {
-          console.log(res)
           this.books = res ;
         },
         (error : HttpErrorResponse) => {
@@ -75,7 +79,6 @@ export class AdminComponent implements OnInit {
     this.emprunteService.getEmpruntes()
       .subscribe(
         (res ) => {
-          console.log(res)
           this.empruntes = res ;
         },
         (error : HttpErrorResponse) => {
@@ -88,7 +91,6 @@ export class AdminComponent implements OnInit {
     this.authenticationService.getAdmins()
       .subscribe(
         (res ) => {
-          console.log(res)
           this.admins = res ;
         },
         (error : HttpErrorResponse) => {
@@ -119,16 +121,6 @@ export class AdminComponent implements OnInit {
     };
   }
 
-  public updateBook (id :number){
-      // this.studentService.deleteStudent(id)
-      //   .subscribe((data: any) =>  {
-      //     this.getStudents()
-      //   }),
-      //   (error : HttpErrorResponse) => {
-      // }
-  }
-
-
   public addNewStudent(){
       this.showAddForm = !this.showAddForm;
       if(this.showAddForm) {
@@ -145,7 +137,6 @@ export class AdminComponent implements OnInit {
         this.msgBtn3 ="Add Book";
       }
   }
-
   public addNewAdmin(){
       this.showAddAdminForm = !this.showAddAdminForm;
       if(this.showAddAdminForm) {
@@ -164,6 +155,7 @@ export class AdminComponent implements OnInit {
   }
 
 
+
   deleteAdmin(id : number) {
     if(window.confirm("Would you really delete this E ")){
       this.adminService.deleteAdmin(id)
@@ -175,7 +167,6 @@ export class AdminComponent implements OnInit {
     };
   }
 
-
   public deleteEmprunte(id : number) {
     if(window.confirm("Would you really delete this Emprunte ")){
       this.emprunteService.deleteEmprunte(id)
@@ -184,6 +175,24 @@ export class AdminComponent implements OnInit {
         }),
         (error : HttpErrorResponse) => {
         }
-    };
+    }
+  }
+
+  public updateEmprunte(id : number) {
+    if(window.confirm("Would you confirm returnig this book ? ")){
+      var today = new Date();
+      let emprunte  = {
+        id : id,
+        dateRetour : this.datePipe.transform(today, 'yyyy-MM-dd'),
+      }
+
+      this.emprunteService.updateEmprunte(emprunte)
+        .subscribe((data: any) =>  {
+          this.getEmpruntes();
+          this.getBooks();
+        }),
+        (error : HttpErrorResponse) => {
+        }
+    }
   }
 }

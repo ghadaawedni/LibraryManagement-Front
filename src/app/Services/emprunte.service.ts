@@ -22,6 +22,11 @@ export class EmprunteService {
      return this.http.post<Emprunte> (`${this.apiServerUrl}/books/empruntes/save`, emprunte);
   }
 
+  public updateEmprunte(emprunte: { dateRetour: string | null; id: number }) : Observable<Emprunte> {
+
+     return this.http.put<Emprunte> (`${this.apiServerUrl}/books/empruntes/save`, emprunte);
+  }
+
   deleteEmprunte(id: number) {
     return this.http.delete (`${this.apiServerUrl}/books/empruntes/`+id);
   }
