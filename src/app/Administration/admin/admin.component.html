@@ -1,3 +1,53 @@
+
+<!-- ///////////////////////////////////////////////         Emprunte            ////////////////////////////////////////////////////////// -->
+
+<div class="container-xl" style="border: 1px solid black; border-radius: 10px;margin-top: 10vh ; margin-bottom: 10vh">
+  <div class="table-responsive" style="margin-top: 3vh ; margin-bottom: 3vh">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-5">
+          <h2>Empruntes <b>Management</b></h2>
+        </div>
+        <div class="col-sm-5"></div>
+        <div class="col-sm-2" >
+          <a (click)=addNewEmprunte()  style="width: 12vw;border-radius: 20px;color: white" class="btn btn-secondary"  >{{msgBtn1}}</a>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="showAddEmprunteForm">
+      <app-add-emprunte></app-add-emprunte>
+      <hr/>
+    </div>
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr>
+        <th>Book Id</th>
+        <th>Student Id</th>
+        <th>Date Emprunte</th>
+        <th>Date Prévue</th>
+        <th>Date Retour</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let emprunte of empruntes">
+        <td>{{emprunte.bookName}}</td>
+        <td>{{emprunte.studentName}} </td>
+        <td>{{emprunte.dateEmprunte}}</td>
+        <td>{{emprunte.datePrevue}}</td>
+        <td>{{emprunte.dateRetour}}</td>
+        <td>
+          <!--          <a (click)=updateEmprunte(emprunte.id) class="update" title="update" data-toggle="tooltip"><i class="material-icons">&#xE0B8;</i></a>-->
+          <a (click)=deleteEmprunte(emprunte.id) class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
 <div class="container-xl" style="border: 1px solid black; border-radius: 10px;margin-top: 10vh ; margin-bottom: 10vh">
   <div class="table-responsive" style="margin-top: 3vh ; margin-bottom: 3vh">
       <div class="table-title">
@@ -7,8 +57,10 @@
           </div>
           <div class="col-sm-5"></div>
           <div class="col-sm-2" >
-          <a (click)=addNewStudent() class="btn btn-secondary" >Add New Studnet</a>
-        </div>
+             <a (click)=addNewStudent() style="width: 12vw;border-radius: 20px;color: white" class="btn btn-secondary" >
+               {{msgBtn4}}</a>
+
+          </div>
         </div>
       </div>
       <div *ngIf="showAddForm">
@@ -56,7 +108,7 @@
         </div>
         <div class="col-sm-5"></div>
         <div class="col-sm-2" >
-          <a (click)=addNewBook() class="btn btn-secondary" >Add New book</a>
+          <a (click)=addNewBook() style="width: 12vw;border-radius: 20px;color: white" class="btn btn-secondary" >{{msgBtn3}}</a>
         </div>
       </div>
     </div>
@@ -83,7 +135,7 @@
         <td>{{book.description}}</td>
         <td>{{book.nbCopy}}</td>
         <td>
-          <a (click)=updateBook(book.id) class="update" title="update" data-toggle="tooltip"><i class="material-icons">&#xE0B8;</i></a>
+<!--          <a (click)=updateBook(book.id) class="update" title="update" data-toggle="tooltip"><i class="material-icons">&#xE0B8;</i></a>-->
           <a (click)=deleteBook(book.id) class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
         </td>
       </tr>
@@ -91,7 +143,6 @@
     </table>
   </div>
 </div>
-
 
 <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
@@ -104,14 +155,15 @@
         </div>
         <div class="col-sm-5"></div>
         <div class="col-sm-2" >
-          <a (click)=addNewBook() class="btn btn-secondary" >Add New Admin</a>
+          <a (click)=addNewAdmin() style="width: 12vw;border-radius: 20px;color: white" class="btn btn-secondary" >
+            {{msgBtn2}}</a>
         </div>
       </div>
     </div>
-<!--    <div *ngIf="showAddAdminForm">-->
-<!--      <app-add-admin></app-add-admin>-->
-<!--      <hr/>-->
-<!--    </div>-->
+    <div *ngIf="showAddAdminForm">
+      <app-add-admin></app-add-admin>
+      <hr/>
+    </div>
     <table class="table table-striped table-hover">
       <thead>
       <tr>
@@ -131,11 +183,12 @@
         <td>{{admin.email}}</td>
         <td>{{admin.phoneNumber}}</td>
         <td>
-          <a (click)=updateBook(admin.id) class="update" title="update" data-toggle="tooltip"><i class="material-icons">&#xE0B8;</i></a>
-          <a (click)=deleteBook(admin.id) class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+<!--          <a (click)=updateAdmin(admin.id) class="update" title="update" data-toggle="tooltip"><i class="material-icons">&#xE0B8;</i></a>-->
+          <a (click)=deleteAdmin(admin.id) class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
         </td>
       </tr>
       </tbody>
     </table>
   </div>
 </div>
+

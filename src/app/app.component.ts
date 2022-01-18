@@ -11,6 +11,9 @@ export class AppComponent {
   title = 'ms-front-angular';
   logged : Boolean = false;
   constructor(private route : Router ,private authenticationService : AuthenticationService,) {
+    if(localStorage.getItem("currentUser")){
+      this.setLoged(true);
+    }
   }
 
   setLoged(value : boolean){
@@ -18,8 +21,10 @@ export class AppComponent {
   }
 
   logOut(){
-    localStorage.removeItem("currentUser");
-    this.route.navigate(["/home"])
-    this.setLoged(false);
+    if(window.confirm("Would you really log OUT ? ")){
+      localStorage.removeItem("currentUser");
+      this.route.navigate(["/home"])
+      this.setLoged(false);
+    }
   }
 }

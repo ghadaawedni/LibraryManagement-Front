@@ -1,1 +1,28 @@
-<p>book works!</p>
+<section>
+  <div class="container">
+    <div class="row">
+      <h1 class="text-center mb-5"> All Books </h1>
+      <div class="col-md-4 mb-4" *ngFor="let book of books">
+        <div class="card h-100">
+          <img class="card-img-top w-100" src="../../../assets/img/gallery/design.png" alt="courses" />
+          <div class="card-body">
+            <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">
+              <div class="row">
+                <div class="col-md-9">
+                  {{book.bookName}}
+                </div>
+                <div class="col-md-3">
+                  {{book.nbCopy}}
+                </div>
+              </div>
+            </h5>
+
+            <a class="text-muted fs--1 stretched-link text-decoration-none" href="#!">
+              {{book.description}}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

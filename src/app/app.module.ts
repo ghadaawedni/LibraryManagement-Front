@@ -13,6 +13,8 @@ import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import {BookService} from "./Services/book.service";
 import { AddBookComponent } from './Components/add-book/add-book.component';
+import { AddAdminComponent } from './Components/add-admin/add-admin.component';
+import { AddEmprunteComponent } from './Components/add-emprunte/add-emprunte.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { AddBookComponent } from './Components/add-book/add-book.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    AddBookComponent
+    AddBookComponent,
+    AddAdminComponent,
+    AddEmprunteComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,35 @@
+<hr/>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <div class="fadeIn first">
+      <img src="assets/img/gallery/logo-n.png" style="margin: 2vh" id="icon" alt="User Icon" />
+    </div>
+    <form [formGroup]="addForm" (ngSubmit)="addEmprunte()" >
+
+      <div>
+        Book Name
+        <select formControlName="bookId" id="bookId" >
+          <option *ngFor="let book of books" value="{{book.id}}">{{book.bookName}} by : {{book.bookAuthor}}</option>
+        </select>
+      </div>
+      <br>
+      <div> Student Name
+        <select formControlName="studentId" id="studentId">
+          <option *ngFor="let student of students"  value="{{student.studentId}}">{{student.firstName}} {{student.lastName}}</option>
+        </select>
+      </div>
+      <br>
+      <div>
+        Date Emprunte
+        <input formControlName="dateEmprunte" type="date" id="dateEmprunte" class="fadeIn third">
+      </div>
+      <br>
+      <div>
+        Date Prévue
+        <input formControlName="datePrevue" type="date" id="datePrevue" class="fadeIn third">
+      </div>
+      <br>
+      <input type="submit"  class="fadeIn fourth" value="Add Emprunte">
+    </form>
+  </div>
+</div>

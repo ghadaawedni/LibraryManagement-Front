@@ -4,5 +4,7 @@ export interface Admin {
   lastName : String;
   email : String;
   phoneNumber : String,
-  username : String
+  username : String,
+  password: String
+
 }
