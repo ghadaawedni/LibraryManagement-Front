@@ -4,4 +4,6 @@ export interface BookStudent {
   dateEmprunte : Date;
   datePrevue : Date;
   dateRetour : Date;
+  img : string;
+
 }

@@ -7,7 +7,7 @@
         <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
           <li class="nav-item px-2"><a class="nav-link active" aria-current="page" routerLink="/home">Home</a></li>
           <li class="nav-item px-2"><a class="nav-link active" aria-current="page" routerLink="/books">Books</a></li>
-          <li class="nav-item px-2"><a class="nav-link active" aria-current="page" routerLink="/student">Student Space</a></li>
+          <li class="nav-item px-2"><a class="nav-link active" aria-current="page" routerLink="/student">student area</a></li>
           <li class="nav-item px-2"><a class="nav-link active" aria-current="page" routerLink="/login">Administration</a></li>
         </ul>
         <div *ngIf="logged">
@@ -20,41 +20,14 @@
 <router-outlet  (activate)="onActivate($event)"> </router-outlet>
 
 </main>
-<footer>
-  <section class="bg-secondary">
-    <div class="container">
-      <div class="row">
-        <div class="col-6"><a class="text-decoration-none" href="#"><img src="assets/img/gallery/footer-logo.png" height="51" alt="" /></a>
-          <p class="text-light my-4"> Tunis El Manar, Tunisia </p>
-        </div>
-        <div class="col-2" align="center">
-          <a routerLink="/home"><h5 class="lh-lg fw-bold text-light font-sans-serif" >Home </h5></a>
-        </div>
-        <div class="col-2" align="center">
-          <a routerLink="/books"><h5 class="lh-lg fw-bold text-light mb-4 font-sans-serif" >See our Books</h5></a>
-        </div>
-        <div class="col-2" align="center">
-          <a  routerLink="/login"><h5 class="lh-lg fw-bold text-light mb-4 font-sans-serif"> Only for Admin</h5></a>
-        </div>
-      </div>
-    </div>
-  </section>
 
-
-</footer>
-<section class="py-0" style="margin-top: -5.8rem;">
-  <div class="container bg-primary" style="border-radius: 25px">
-    <div class="row justify-content-md-between justify-content-evenly py-4">
-      <div class="col-12 col-sm-8 col-md-6 col-lg-auto text-center text-md-start">
-        <p class="fs--1 my-2 fw-bold">All rights Reserved &copy; IF5 , 2022</p>
-      </div>
-      <div class="col-12 col-sm-8 col-md-6">
-        <p class="fs--1 my-2 text-center text-md-end"> Made with&nbsp;
-          <svg class="bi bi-suit-heart-fill" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="#EB6453" viewBox="0 0 16 16">
-            <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"></path>
-          </svg>&nbsp;by&nbsp;<a class="fw-bold text-900"  target="_blank">Ghada & Aymen & Sana  </a>
-        </p>
-      </div>
-    </div>
+  <div class="footer-basic"  id="foo" >
+      <hr style=" border: black solid 2px"/>
+       <ul class="list-inline">
+        <li class="list-inline-item"><a routerLink="/home">Home</a></li>
+        <li class="list-inline-item"><a routerLink="/books">See our Books</a></li>
+        <li class="list-inline-item"><a routerLink="/student">Only for Student</a></li>
+        <li class="list-inline-item"><a routerLink="/admin">Only for Admin</a></li>
+      </ul>
+      <p class="copyright">IF5 © 2022</p>
   </div>
-</section>

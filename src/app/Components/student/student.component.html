@@ -19,6 +19,7 @@
     <table class="table table-striped table-hover">
       <thead>
       <tr>
+        <th> </th>
         <th>Book Name</th>
         <th>Date Emprunte</th>
         <th>Date Prévue</th>
@@ -26,7 +27,11 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let emprunte of empruntes">
+      <tr *ngFor="let emprunte of empruntes" >
+        <td align="center">
+          <img style="height:10vw;width : 15vw ; border-radius: 15px; border: blue solid 1px"
+               src="../../../assets/img/gallery/{{emprunte.img}}" alt="courses" />
+        </td>
         <td>{{emprunte.bookName}}</td>
         <td>{{emprunte.dateEmprunte | date: 'shortDate'}}</td>
         <td>{{emprunte.datePrevue  | date: 'shortDate' }}</td>
@@ -38,7 +43,7 @@
         </td>
       </tr>
       <tr *ngIf="empruntes.length==0">
-        <td colspan="4" align="center"> There are no books borrowed by ME </td>
+        <td colspan="6" align="center"> There are no books borrowed by ME </td>
       </tr>
       </tbody>
     </table>

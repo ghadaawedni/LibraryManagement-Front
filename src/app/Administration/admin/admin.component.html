@@ -48,6 +48,9 @@
           </a>
         </td>
       </tr>
+      <tr *ngIf="empruntes.length==0">
+        <td colspan="6" align="center"> There are no Empruntes to show </td>
+      </tr>
       </tbody>
     </table>
   </div>
@@ -99,6 +102,9 @@
           <a (click)=deleteBook(book.id) class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
         </td>
       </tr>
+      <tr *ngIf="books.length==0">
+        <td colspan="6" align="center"> There are no Books to show </td>
+      </tr>
       </tbody>
     </table>
   </div>
@@ -117,7 +123,6 @@
           <div class="col-sm-2" >
              <a (click)=addNewStudent() style="width: 12vw;border-radius: 20px;color: white" class="btn btn-secondary" >
                {{msgBtn4}}</a>
-
           </div>
         </div>
       </div>
@@ -148,6 +153,9 @@
           <td>
             <a (click)=deleteStudent(student.studentId) class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
           </td>
+        </tr>
+        <tr *ngIf="students.length==0">
+          <td colspan="6" align="center"> There are no Students to show </td>
         </tr>
         </tbody>
       </table>
@@ -194,9 +202,11 @@
         <td>{{admin.email}}</td>
         <td>{{admin.phoneNumber}}</td>
         <td>
-<!--          <a (click)=updateAdmin(admin.id) class="update" title="update" data-toggle="tooltip"><i class="material-icons">&#xE0B8;</i></a>-->
-          <a (click)=deleteAdmin(admin.id) class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+           <a (click)=deleteAdmin(admin.id) class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
         </td>
+      </tr>
+      <tr *ngIf="admins.length==0">
+        <td colspan="6" align="center"> There are no Admins to show </td>
       </tr>
       </tbody>
     </table>
