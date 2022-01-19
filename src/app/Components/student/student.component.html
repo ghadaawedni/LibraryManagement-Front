@@ -1,0 +1,46 @@
+<hr/>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <form [formGroup]="studentForm" (ngSubmit)="getMyBooks()" >
+  <input formControlName="email" type="text" id="firstName" class="fadeIn second" placeholder="email">
+  <input type="submit" [disabled]="studentForm.invalid" class="fadeIn fourth" value="Show My Books">
+</form>
+  </div>
+</div>
+
+
+<!-- ///////////////////////////////////////////////         My Books            ////////////////////////////////////////////////////////// -->
+
+<div *ngIf="show" class="container-xl" style="border: 1px solid grey; border-radius: 10px;margin-top: 10vh ; margin-bottom: 10vh">
+  <h1 class="text-center "> My Books </h1>
+
+  <div class="table-responsive" style="margin-top: 3vh ; margin-bottom: 3vh">
+
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr>
+        <th>Book Name</th>
+        <th>Date Emprunte</th>
+        <th>Date Prévue</th>
+        <th>Date Retour</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let emprunte of empruntes">
+        <td>{{emprunte.bookName}}</td>
+        <td>{{emprunte.dateEmprunte | date: 'shortDate'}}</td>
+        <td>{{emprunte.datePrevue  | date: 'shortDate' }}</td>
+        <td>
+          {{emprunte.dateRetour | date: 'shortDate'}}
+          <div *ngIf="emprunte.dateRetour==null">
+            <p style="width : 10vw;background-color: red;color: white;border-radius: 20px;text-align: center">Not returned yet</p>
+          </div>
+        </td>
+      </tr>
+      <tr *ngIf="empruntes.length==0">
+        <td colspan="4" align="center"> There are no books borrowed by ME </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

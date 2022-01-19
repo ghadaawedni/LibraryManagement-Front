@@ -15,6 +15,7 @@ import {BookService} from "./Services/book.service";
 import { AddBookComponent } from './Administration/admin/add-book/add-book.component';
 import { AddAdminComponent } from './Administration/admin/add-admin/add-admin.component';
 import { AddEmprunteComponent } from './Administration/admin/add-emprunte/add-emprunte.component';
+import { StudentComponent } from './Components/student/student.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AddEmprunteComponent } from './Administration/admin/add-emprunte/add-em
     RegisterComponent,
     AddBookComponent,
     AddAdminComponent,
-    AddEmprunteComponent
+    AddEmprunteComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,

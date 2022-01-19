@@ -12,12 +12,13 @@ export class BookService {
 
   constructor(private http : HttpClient) { }
 
+  public getBooksByStudent(email : string) : Observable<Book[]> {
+    return this.http.get<Book[]> (`${this.apiServerUrl}/books/all/`+email);
+  }
   public getBooks() : Observable<Book[]> {
-    console.log("getbooks in book service is running !");
     return this.http.get<Book[]> (`${this.apiServerUrl}/books/all`);
   }
   public getBestBooks() : Observable<Book[]> {
-    console.log("getbooks in book service is running !");
     return this.http.get<Book[]> (`${this.apiServerUrl}/books/empruntes/best`);
   }
 
@@ -28,5 +29,7 @@ export class BookService {
   public deleteBook(id : number)   {
     return this.http.delete (`${this.apiServerUrl}/books/`+id);
   }
+
+
 
 }

@@ -7,11 +7,12 @@
     <form [formGroup]="registerForm" (ngSubmit)="signUp()" >
       <input formControlName="firstName" type="text" id="firstName" class="fadeIn second" placeholder="first Name">
       <input formControlName="lastName" type="text" id="lastName " class="fadeIn third"  placeholder="Last Name">
+      <input formControlName="email" type="text" id="email " class="fadeIn third"  placeholder="email">
       <input formControlName="age" type="text" id="age" class="fadeIn third"  placeholder="Age">
       <input formControlName="studyField" type="text" id="studyField" class="fadeIn third"  placeholder="Study Field">
       <input formControlName="university" type="text" id="university" class="fadeIn third"  placeholder="University">
       <input formControlName="phone" type="text" id="phone" class="fadeIn third"  placeholder="Phone Number">
-      <input type="submit" class="fadeIn fourth" value="Add Student">
+      <input type="submit" [disabled]="registerForm.invalid" class="fadeIn fourth" value="Add Student">
     </form>
   </div>
 </div>
