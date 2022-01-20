@@ -183,7 +183,7 @@ export class AdminComponent implements OnInit {
       var today = new Date();
       let emprunte  = {
         id : id,
-        dateRetour : this.datePipe.transform(today, 'yyyy-MM-dd'),
+        dateRetour : this.datePipe.transform(today, 'yyyy-MM-dd')
       }
 
       this.emprunteService.updateEmprunte(emprunte)

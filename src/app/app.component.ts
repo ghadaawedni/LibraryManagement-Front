@@ -10,7 +10,7 @@ import { Router} from "@angular/router";
 export class AppComponent {
   title = 'ms-front-angular';
   logged : Boolean = false;
-  constructor(private route : Router ,private authenticationService : AuthenticationService,) {
+  constructor(private route : Router ,private authenticationService : AuthenticationService) {
     if(localStorage.getItem("currentUser")){
       this.setLoged(true);
     }
